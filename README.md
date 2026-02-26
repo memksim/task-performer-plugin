@@ -1,4 +1,4 @@
-# Task Performer Plugin
+# Claude code plugin for performing task full workflow
 
 Structured development workflow plugin for Claude Code with automated code review and QA verification for mobile applications.
 
