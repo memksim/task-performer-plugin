@@ -1,0 +1,8 @@
+{
+  "name": "task-performer",
+  "description": "Structured development workflow with automated code review and QA verification.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Maksim Kosenko"
+  }
+}
