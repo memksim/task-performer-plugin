@@ -1,182 +1,88 @@
 ---
 name: list_tasks
-description: List all tasks with optional filtering by status, priority, type, and dependencies.
+description: List all tasks with their YAML content.
 user-invokable: true
 ---
 
-> Important: be sure to use the `task_management` skill.
-
 ## Overview
 
-The `list_tasks` skill shows all tasks in the project with optional filtering and sorting.
+The `list_tasks` skill shows all tasks in the project with their YAML content. This is a simple bash script that directly reads task directories and displays their YAML frontmatter.
 
 ## Usage
 
 ```
-/list_tasks [options]
+./list_tasks.sh
 ```
 
-### Options
-
-| Option | Format | Description |
-|--------|--------|-------------|
-| status | `status=ready_for_dev` | Filter by status (see valid values below) |
-| priority | `priority=1,2` | Filter by priority (comma-separated) |
-| type | `type=feature,bug` | Filter by type (comma-separated) |
-| blocked | `blocked=true` | Show only blocked tasks |
-| blocking | `blocking=true` | Show tasks that block others |
-| depends_on | `depends_on=CORE-001` | Show tasks depending on specified task |
-| format | `format=table\|json\|short` | Output format (default: table) |
-
-### Status Values
-
-- `ready_for_dev`
-- `dev_in_progress`
-- `ready_for_review`
-- `review_in_progress`
-- `changes_requested`
-- `ready_for_qa_review`
-- `qa_review_in_progress`
-- `bugs_found`
-- `verified`
-- `blocked`
-
-## Output Formats
-
-### Table Format (default)
-
-```
-┌────────────┬─────────────────────────────┬──────────┬──────────────┬────────────┐
-│ ID         │ Title                       │ Priority │ Status       │ Depends On │
-├────────────┼─────────────────────────────┼──────────┼──────────────┼────────────┤
-│ CORE-003   │ Phase 3 - Advanced features │ P2       │ Ready        │ CORE-001   │
-│ CORE-001   │ Phase 1 - Basics            │ P2       │ In Progress  │ -          │
-│ CORE-002   │ Phase 2 - Improvements      │ P2       │ Ready        │ CORE-001   │
-│ CORE-004   │ Phase 4 - Optional features │ P3       │ Ready        │ CORE-003   │
-└────────────┴─────────────────────────────┴──────────┴──────────────┴────────────┘
-```
-
-### Short Format
-
-```
-CORE-001 [P2] Dev in progress - Phase 1 - Basics
-CORE-002 [P2] Ready for dev - Phase 2 - Improvements
-CORE-003 [P2] Ready for dev - Phase 3 - Advanced features
-CORE-004 [P3] Ready for dev - Phase 4 - Optional features
-```
-
-### JSON Format
-
-```json
-{
-  "tasks": [
-    {
-      "id": "CORE-001",
-      "title": "Phase 1 - Basics",
-      "type": "feature",
-      "priority": 2,
-      "status": "Dev in progress",
-      "depends_on": [],
-      "blocks": ["CORE-002", "CORE-003"]
-    }
-  ],
-  "total": 4,
-  "filtered": 4
-}
-```
-
-## Implementation
-
-When listing tasks:
-
-1. Scan `.claude/tasks/` directory for all task directories
-2. For each directory, read `task.md` file
-3. Parse YAML frontmatter if present, otherwise use legacy parsing
-4. Apply filters if specified
-5. Sort by priority (ascending), then by status (ready first), then by ID
-6. Format and display output
-
-### Parsing Task Files
-
-**With YAML frontmatter:**
-```
-Parse the YAML block between --- markers
-Extract all fields directly
-```
-
-**Legacy format (no frontmatter):**
-```
-ID: Extract from heading (# TASK-ID:)
-Title: Extract from heading after ID
-Status: Extract from "## Status:" line
-Priority: Default to 2
-Type: Default to "feature"
-depends_on: Default to []
-blocks: Default to []
-```
-
-### Sorting Order
-
-1. Priority (1 = Critical first)
-2. Status order:
-   - Blocked
-   - Ready for dev
-   - Dev in progress
-   - Changes requested
-   - Bugs found
-   - Ready for review
-   - Review in progress
-   - Ready for QA review
-   - QA review in progress
-   - Verified
-3. ID alphabetically
-
-## Examples
-
-### List all tasks
+Or if using Claude Code skills:
 ```
 /list_tasks
 ```
 
-### List only ready tasks with high priority
-```
-/list_tasks status=ready_for_dev priority=1,2
-```
+## Output Format
 
-### List blocked tasks
-```
-/list_tasks blocked=true
-```
-
-### List tasks blocking others
-```
-/list_tasks blocking=true
-```
-
-### Show tasks that depend on CORE-001
-```
-/list_tasks depends_on=CORE-001
-```
-
-### Output as JSON for scripting
-```
-/list_tasks format=json
-```
-
-## Summary View
-
-After listing, show a summary:
+The script outputs each task's YAML content in a simple, readable format:
 
 ```
-Summary: 4 tasks total
-  Ready for dev: 2
-  Dev in progress: 1
-  Blocked: 0
-  Verified: 1
+=== CORE-001 ===
+id: "CORE-001"
+title: "Phase 1 - Basics of task system"
+type: feature
+priority: 2
+assignee: senior-android-developer
+depends_on: []
+blocks: ["CORE-002", "CORE-003", "CORE-004"]
+created_at: "2026-03-05T10:00:00Z"
+updated_at: "2026-03-05T11:00:00Z"
+status: "Ready for review"
+attempt: 0
 
-Priority breakdown:
-  P1 (Critical): 0
-  P2 (High): 3
-  P3 (Medium): 1
-  P4 (Low): 0
+=== CORE-002 ===
+id: "CORE-002"
+title: "Phase 2 - Workflow improvements"
+type: feature
+priority: 2
+assignee: senior-android-developer
+depends_on: ["CORE-001"]
+blocks: ["CORE-003", "CORE-004"]
+created_at: "2026-03-05T10:00:00Z"
+updated_at: "2026-03-06T12:00:00Z"
+status: "Ready for review"
+attempt: 0
 ```
+
+## Implementation
+
+This skill uses a simple bash script that directly reads files without agent overhead:
+
+1. Scan project root `.claude/tasks/` directory for all task directories
+2. For each directory, read `task.md` file
+3. Extract and display the YAML frontmatter from each task file
+
+The script is fast and efficient, providing raw YAML output for further processing.
+
+### Script Location
+
+The script is located at:
+```
+/skills/list_tasks/list_tasks.sh
+```
+
+To run directly:
+```
+bash /Users/m.kosenko/WebstormProjects/task-performer/skills/list_tasks/list_tasks.sh
+```
+
+## Examples
+
+### List all tasks (simple output)
+```
+/list_tasks
+```
+
+## Notes
+
+- This is a simple, fast alternative to agent-based task listing
+- For advanced filtering and sorting, consider using the task_management skill
+- The raw YAML output can be piped to other tools (jq, grep, etc.) for custom processing
+- No agent overhead means instant results

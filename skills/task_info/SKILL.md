@@ -68,7 +68,7 @@ The skill outputs a comprehensive task card:
 
 When showing task info:
 
-1. **Read task file**: Read `.claude/tasks/<TASK-ID>/task.md`
+1. **Read task file**: Read `<project_root>/.claude/tasks/<TASK-ID>/task.md`
 2. **Parse metadata**: Extract YAML frontmatter
 3. **Check history**: Read `task_history.md` if exists
 4. **Check artifacts**: List all files in task directory

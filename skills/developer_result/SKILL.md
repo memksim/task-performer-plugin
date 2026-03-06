@@ -24,7 +24,7 @@ If user provided enough information — don't ask questions.
 
 ## Output
 Always generate/update file:
-- `dev_result.md` (always next to task/in `.claude/tasks/<task_id>/dev_result.md`)
+- `dev_result.md` (always next to task/in `<project_root>/.claude/tasks/<task_id>/dev_result.md`)
 - if user explicitly specified a different path — use it
 
 Style: strictly to the point, in English, no fluff.

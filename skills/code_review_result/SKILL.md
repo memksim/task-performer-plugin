@@ -26,7 +26,7 @@ Ask briefly:
 If enough data provided — don't ask.
 
 ## Output
-Create / update file: `review_result.md` (next to task or in .claude/tasks/<task>/)
+Create / update file: `review_result.md` (next to task or in project root `.claude/tasks/<task>/`)
 If file exists: Overwrite it
 Add new Review Round
 ### Structure

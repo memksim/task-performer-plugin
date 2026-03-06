@@ -16,7 +16,7 @@ In Claude Code, register the marketplace first:
 `/plugin marketplace add memksim/workflow-marketplace`
 
 Then install the plugin from this marketplace:
-`/plugin install taREDACTED__N31__
+`/plugin install task-performer`
 
 ### Directory Structure
 

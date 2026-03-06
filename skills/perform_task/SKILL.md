@@ -30,7 +30,7 @@ Before starting any task, verify:
    - If detected, report error to user
 
 ### Flow
-1. Manager receives task from `.claude/tasks/<ID>` directory
+1. Manager receives task from `<project_root>/.claude/tasks/<ID>` directory
 2. **Check dependencies** - if any unmet, set to `Blocked` and stop
 3. Creates a developer task from it
 4. Passes the task to `android-developer`

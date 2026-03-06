@@ -11,7 +11,7 @@ description: Provides information necessary for creating a task or a set of task
 3. Determine whether to describe everything in one task or split into a set of tasks
 4. Create task identifier and task directory
 5. Describe the task
-6. Create a new subdirectory in the `.claude/tasks` directory (see section `How to determine which identifier to choose`)
+6. Create a new subdirectory in the project root `.claude/tasks` directory (see section `How to determine which identifier to choose`)
 7. Create a `task.md` file there, which will contain the full task description
 8. If task has dependencies, update `depends_on` field and update dependent tasks' `blocks` field
 
@@ -57,7 +57,7 @@ If the user didn't provide a task ID - ask for it. Don't make it up yourself.
 ### Automatic ID Generation (Optional)
 
 If user requests automatic ID generation, use this pattern:
-1. Scan `.claude/tasks/` directory for existing task IDs
+1. Scan project root `.claude/tasks/` directory for existing task IDs
 2. Find the highest number for the requested prefix
 3. Generate next ID: `PREFIX-XXX` (zero-padded to 3 digits)
 

@@ -8,8 +8,8 @@ user-invokable: false
 Each task is a directory with a name equal to the unique task identifier.
 **Examples:**
 ```
-1) Identifier: MUSIC-009 -> Directory .claude/tasks/MUSIC-009/
-2) Identifier: FEED-1000 -> Directory .claude/tasks/FEED-1000/
+1) Identifier: MUSIC-009 -> Directory <project_root>/.claude/tasks/MUSIC-009/
+2) Identifier: FEED-1000 -> Directory <project_root>/.claude/tasks/FEED-1000/
 ```
 
 As mentioned earlier, a task is a directory. It contains a set of .md files. Their set may vary.
