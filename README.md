@@ -16,7 +16,7 @@ In Claude Code, register the marketplace first:
 `/plugin marketplace add memksim/workflow-marketplace`
 
 Then install the plugin from this marketplace:
-`/plugin install task-performer@workflow-plugins`
+`/plugin install taREDACTED__N31__
 
 ### Directory Structure
 
@@ -71,15 +71,6 @@ Creates a new task with the specified ID.
 /make_task ABC-123
 ```
 
-Prompts for:
-- Title
-- Problem description
-- Task description
-- Constraints
-- Team members
-
-Creates `.claude/tasks/ABC-123/task.md` with status `Ready for dev`.
-
 ### /perform_task
 
 Executes the full workflow for a task.
@@ -88,33 +79,156 @@ Executes the full workflow for a task.
 /perform_task ABC-123
 ```
 
-Runs the complete pipeline(Unless otherwise stated in the task description):
-1. **Development** - `senior-android-developer` implements the feature
-2. **Code Review** - `android-code-reviewer` analyzes the code
-3. **QA Verification** - `qa-expert` checks build, tests, security, accessibility
+### /list_tasks
+
+Lists all tasks with optional filtering.
+
+```
+/list_tasks status=ready_for_dev priority=1,2
+/list_tasks blocked=true
+```
+
+### /task_info
+
+Shows detailed information about a specific task.
+
+```
+/task_info CORE-001
+```
+
+Displays: full task card, history, artifacts, status badges.
+
+### /status
+
+Shows project dashboard with task counts, active work, and blocked items.
+
+```
+/status
+/status detailed=true
+/status team=true
+```
 
 ## Workflow
 
-### User workflow
-1. `/make_task ABC-123`
-2. `/perform_task ABC-123`
+### Status Flow
 
-### Agents workflow
 ```mermaid
 flowchart TD
 
 A[Ready for Dev]
-A --> B[Dev in Progress]
-B --> C[Ready for Review]
-C --> D[Review in Progress]
-D --> E[Ready for QA Review]
-E --> F[QA Review in Progress]
-F --> G[Verified]
+B[Dev in Progress]
+C[Ready for Review]
+D[Review in Progress]
+E[Ready for QA Review]
+F[QA Review in Progress]
+G[Verified]
+H[Blocked]
+R1[Changes Requested]
+R2[Bugs Found]
 
-%% Rework loops
-C -- changes requested --> A
-F -- bugs found --> A
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+
+%% Rework loops - explicit statuses
+D -- issues found --> R1
+R1 --> B
+F -- issues found --> R2
+R2 --> B
+
+%% Blocked state
+A -- unmet dependencies --> H
+B -- external blocker --> H
+H -- resolved --> A
+H -- resolved --> B
 ```
+
+### Status Definitions
+
+| Status | Description |
+|--------|-------------|
+| `Ready for dev` | Task waiting for developer to pick it up |
+| `Dev in progress` | Developer has picked up the task |
+| `Ready for review` | Developer completed work, waiting for code review |
+| `Review in progress` | Code reviewer has picked up the task |
+| `Changes requested` | Code review found issues, returned to development |
+| `Ready for QA review` | Code reviewer completed, waiting for QA |
+| `QA review in progress` | QA has picked up the task |
+| `Bugs found` | QA found issues, returned to development |
+| `Verified` | Work on task is completed |
+| `Blocked` | Task is blocked by dependencies or external factors |
+
+## Task Format
+
+Tasks are **Markdown files** (`.md`) with **YAML frontmatter** at the top:
+
+```markdown
+---
+id: "TASK-001"
+title: "Short task title"
+type: feature
+priority: 2
+assignee: senior-android-developer
+depends_on: []
+blocks: []
+created_at: "2026-03-05T10:00:00Z"
+updated_at: "2026-03-05T10:00:00Z"
+status: "Ready for dev"
+attempt: 0
+---
+
+# TASK-001: Short task title
+
+## Problem Statement
+What problem needs to be solved.
+
+## Task Description
+What needs to be done.
+
+## Constraints
+- Constraint 1
+- Constraint 2
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Team Specification
+
+| Role | Agent |
+|------|-------|
+| Developer | senior-android-developer |
+| Reviewer | android-code-reviewer |
+| QA | qa-expert |
+
+## Status: Ready for dev
+## Updated: 2026-03-05 10:00:00
+```
+
+### Task Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | string | Unique task identifier |
+| title | string | Short task title |
+| type | enum | feature, bug, refactor, research, docs |
+| priority | number | 1-4 (Critical, High, Medium, Low) |
+| assignee | string | Agent assigned to task |
+| depends_on | array | Tasks that must complete first |
+| blocks | array | Tasks waiting for this task |
+| status | string | Current task status |
+
+### Priority Levels
+
+| Priority | Name | SLA | Description |
+|----------|------|-----|-------------|
+| 1 | Critical | Today | Blocking production or critical path |
+| 2 | High | This week | Important feature or significant bug |
+| 3 | Medium | This sprint | Regular feature or improvement |
+| 4 | Low | When possible | Nice-to-have or minor improvement |
 
 ## Task Files
 
@@ -126,6 +240,23 @@ Each task generates several files:
 | `dev_result.md` | Development results |
 | `review_result.md` | Code review findings |
 | `qa_review_result.md` | QA verification results |
+| `task_history.md` | History of status changes (optional) |
+
+## Dependencies
+
+Tasks can depend on other tasks using `depends_on`:
+
+```yaml
+depends_on: ["AUTH-001", "AUTH-002"]
+```
+
+A task with unmet dependencies will be set to `Blocked` status automatically.
+
+### Dependency Rules
+
+- Task cannot start if any dependency is not `Verified`
+- Circular dependencies are not allowed
+- When task becomes `Verified`, dependent tasks are automatically unblocked
 
 ## Examples
 
