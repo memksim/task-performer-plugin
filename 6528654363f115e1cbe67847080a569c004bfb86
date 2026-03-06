@@ -1,0 +1,459 @@
+skills/list_tasks/SKILL.md
+  47c3347 3,9,14,17,19,24,27-38,40-42,45-51,56,60,62,64,66,68,71,73,78,83,85-88
+README.md
+  cd0a907 3,5,7,9-11,13,21,23,25-34,36,38,40-45,47,49-53,55,57-62,64,66,68,70-72,74,76,78-80,116,118,209,233,235,237-242,261,263,265,267
+skills/list_tasks/list_tasks.sh
+  47c3347 1,3-4,6,8-12,14-15,17-20,22-25,27-30,32,34-53,55-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "base_commit_sha": "6528654363f115e1cbe67847080a569c004bfb86",
+  "prompts": {
+    "47c3347": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc55cd9d-adc6-4bc0-ae45-033f5e2f28b4",
+        "model": "kimi-k2-thinking"
+      },
+      "human_author": "m.kosenko <m.kosenko@vk.team>",
+      "messages": [
+        {
+          "type": "user",
+          "text": "Мне не нравится как работает @skills/list_tasks/SKILL.md Он слишком долго думает. Я хочу чтобы он просто выводил все директории из TASK и yaml для каждой. МНе вообще не нужна тут работа агента, мне нужен скрипт",
+          "timestamp": "2026-03-06T08:00:08.931Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Я посмотрю текущую реализацию skill'а list_tasks и передам ваши требования агенту для создания простого скрипта.",
+          "timestamp": "2026-03-06T08:00:25.986Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Task",
+          "input": {
+            "description": "Create simple list_tasks script",
+            "prompt": "Пользователь хочет изменить подход в skills/list_tasks/SKILL.md. Сейчас он слишком медленно работает через агента. Пользователь хочет простой скрипт, который:\n\n1. Выводит все директории из `.claude/tasks/`\n2. Для каждой директории выводит YAML содержимое (если есть)\n3. НЕ нужна работа агента, нужен просто скрипт\n\nПожалуйста:\n1. Прочитай текущий skills/list_tasks/SKILL.md\n2. Создай новую реализацию в виде простого скрипта (можно на bash/python/node) который выводит список всех task директорий и содержимое YAML для каждой\n3. Сохрани этот скрипт в skills/list_tasks/\n4. Обнови skills/list_tasks/SKILL.md чтобы он использовал этот скрипт вместо вызова агента task_management\n\nФормат вывода должен быть простым и быстрым, без лишних проверок и обработок.",
+            "subagent_type": "general-purpose"
+          },
+          "timestamp": "2026-03-06T08:00:39.870Z"
+        }
+      ],
+      "total_additions": 576,
+      "total_deletions": 482,
+      "accepted_lines": 91,
+      "overriden_lines": 0
+    },
+    "cd0a907": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d1e0cb59-3c2e-4652-a162-efa34d67a100",
+        "model": "glm-5"
+      },
+      "human_author": "m.kosenko <m.kosenko@vk.team>",
+      "messages": [
+        {
+          "type": "user",
+          "text": "Напиши README. ПОтом расскажи мне как я могу протестировать плагин",
+          "timestamp": "2026-02-26T16:58:44.633Z"
+        },
+        {
+          "type": "user",
+          "text": "Напиши README. ПОтом расскажи мне как я могу протестировать плагин",
+          "timestamp": "2026-02-26T16:59:07.483Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Сначала изучу структуру проекта, чтобы понять что это за плагин.",
+          "timestamp": "2026-02-26T16:59:14.764Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Glob",
+          "input": {
+            "pattern": "**/*"
+          },
+          "timestamp": "2026-02-26T16:59:14.791Z"
+        },
+        {
+          "type": "user",
+          "text": "/Users/m.kosenko/WebstormProjects/task-performer/LICENSE\n/Users/m.kosenko/WebstormProjects/task-performer/agents/android-code-reviewer.md\n/Users/m.kosenko/WebstormProjects/task-performer/agents/qa-expert.md\n/Users/m.kosenko/WebstormProjects/task-performer/agents/senior-android-developer.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/code_review_result/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/code_review_result/examples/review_result.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/developer_result/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/developer_result/examples/dev_result.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/perform_task/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/qa_review_result/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/qa_review_result/examples/qa_review_result.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/task_management/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/task_management/examples/task.md\n/Users/m.kosenko/WebstormProjects/task-performer/.gitignore\n/Users/m.kosenko/WebstormProjects/task-performer/skills/make_task/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/.idea/workspace.xml\n/Users/m.kosenko/WebstormProjects/task-performer/.idea/.gitignore\n/Users/m.kosenko/WebstormProjects/task-performer/.git/info/exclude\n/Users/m.kosenko/WebstormProjects/task-performer/.git/description\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/commit-msg.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/pre-rebase.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/sendemail-validate.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/pre-commit.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/applypatch-msg.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/fsmonitor-watchman.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/pre-receive.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/prepare-commit-msg.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/post-update.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/pre-merge-commit.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/pre-applypatch.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/pre-push.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/update.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/hooks/push-to-checkout.sample\n/Users/m.kosenko/WebstormProjects/task-performer/.git/config\n/Users/m.kosenko/WebstormProjects/task-performer/.git/HEAD\n/Users/m.kosenko/WebstormProjects/task-performer/.git/ai/rewrite_log\n/Users/m.kosenko/WebstormProjects/task-performer/.claude-plugin/plugin.json",
+          "timestamp": "2026-02-26T16:59:15.140Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Прочитаю ключевые файлы проекта.",
+          "timestamp": "2026-02-26T16:59:24.451Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/LICENSE"
+          },
+          "timestamp": "2026-02-26T16:59:24.452Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/agents/senior-android-developer.md"
+          },
+          "timestamp": "2026-02-26T16:59:24.930Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/skills/qa_review_result/examples/qa_review_result.md"
+          },
+          "timestamp": "2026-02-26T16:59:25.238Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/skills/task_management/examples/task.md"
+          },
+          "timestamp": "2026-02-26T16:59:25.545Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/skills/code_review_result/SKILL.md"
+          },
+          "timestamp": "2026-02-26T16:59:25.954Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→---\n     2→name: senior-android-developer\n     3→description: \"Use this agent when you need expert-level Android development assistance, including architecture decisions, Kotlin/Java code implementation, Jetpack Compose UI development, performance optimization, testing strategies, or debugging complex Android issues. This agent should be used proactively when Android-specific code is being written or reviewed.\\\\n\\\\n<example>\\\\nContext: User is implementing a new feature that requires Android-specific code.\\\\nuser: \\\"I need to implement a background sync service that runs periodically\\\"\\\\nassistant: \\\"I'll use the senior-android-developer agent to design and implement this background sync service with proper Android lifecycle considerations.\\\"\\\\n<commentary>\\\\nSince this involves Android-specific background work which requires understanding of WorkManager, JobScheduler, and battery optimization, use the senior-android-developer agent to ensure best practices are followed.\\\\n</commentary>\\\\n</example>\\\\n\\\\n<example>\\\\nContext: User is building a new screen with Jetpack Compose.\\\\nuser: \\\"Create a user profile screen with a photo, name, and settings list\\\"\\\\nassistant: \\\"Let me use the senior-android-developer agent to build this Compose screen with proper state management.\\\"\\\\n<commentary>\\\\nSince this requires Jetpack Compose expertise including state hoisting, composable design patterns, and Material Design, use the senior-android-developer agent.\\\\n</commentary>\\\\n</example>\\\\n\\\\n<example>\\\\nContext: User is reviewing recently written Android code.\\\\nuser: \\\"Review the ViewModel code I just wrote\\\"\\\\nassistant: \\\"I'll launch the senior-android-developer agent to review your ViewModel implementation for architecture compliance and best practices.\\\"\\\\n<commentary>\\\\nSince Android-specific code review requires understanding of ViewModels, coroutines, state flow, and lifecycle awareness, use the senior-android-developer agent.\\\\n</commentary>\\\\n</example>\"\n     4→model: inherit\n     5→color: green\n     6→memory: project\n     7→permission-mode: acceptEdits\n     8→tools: Bash(mkdir *),Bash(mv *),Bash(cp *)\n     9→skills: \n    10→    - task_management\n    11→    - developer_result\n    12→---\n    13→\n    14→You are a Senior Android Developer with 10+ years of experience building production-grade Android applications. You have deep expertise in modern Android development including Kotlin, Jetpack Compose, coroutines, Flow, and MVI architecture patterns. You've architected apps serving millions of users and understand the nuances of Android lifecycle, memory management, and performance optimization.\n    15→\n    16→## Core Expertise\n    17→\n    18→**Architecture & Design Patterns**\n    19→- MVI for complex state management scenarios\n    20→- Repository pattern with data source abstraction\n    21→- Domain layer design with use cases\n    22→- Modular architecture (feature modules, core modules)\n    23→\n    24→**Kotlin Mastery**\n    25→- Idiomatic Kotlin with extension functions, scope functions, and inline classes\n    26→- Coroutines and Flow for asynchronous operations\n    27→- StateFlow and SharedFlow for reactive state management\n    28→- Kotlin serialization and Parcelize\n    29→- Null safety best practices\n    30→- Sealed classes/interfaces for exhaustive state representation\n    31→\n    32→**Jetpack Compose**\n    33→- State hoisting and composition local providers\n    34→- Custom layouts and modifiers\n    35→- Animation APIs (AnimatedVisibility, animate*AsState, Animatable)\n    36→- Side effects (LaunchedEffect, DisposableEffect, SideEffect)\n    37→- Performance optimization (stability, recomposition control)\n    38→- Navigation Compose\n    39→\n    40→**Android Platform**\n    41→- Activity and Fragment lifecycle mastery\n    42→- ViewModel and LiveData integration\n    43→- WorkManager for background tasks\n    44→- Room database with migrations\n    45→- DataStore for preferences\n    46→- Firebase integration (Crashlytics, Analytics, Remote Config)\n    47→- Deep links and App Links\n    48→- Permissions handling\n    49→- Multi-module project structure\n    50→\n    51→## Code Quality Standards\n    52→\n    53→When writing or reviewing code, you enforce:\n    54→\n    55→1. **Naming Conventions**\n    56→   - Descriptive variable and function names\n    57→   - Boolean properties prefixed with 'is', 'has', 'should'\n    58→   - Composable functions use PascalCase\n    59→   - Extension properties for cleaner APIs\n    60→\n    61→2. **Error Handling**\n    62→   - Result/Either types for expected failures\n    63→   - Proper exception handling with context\n    64→   - User-friendly error messages\n    65→   - Crash reporting considerations\n    66→\n    67→3. **Testing**\n    68→   - Unit tests for ViewModels, repositories, use cases\n    69→   - UI tests with Compose Testing\n    70→   - Robolectric for Android-dependent unit tests\n    71→   - Test doubles (fakes over mocks when appropriate)\n    72→\n    73→4. **Performance**\n    74→   - Avoid unnecessary recomposition in Compose\n    75→   - Proper coroutine scope management\n    76→   - Memory leak prevention\n    77→   - Efficient image loading (Coil/Glide)\n    78→   - Baseline Profiles consideration\n    79→\n    80→## Workflow Approach\n    81→\n    82→When implementing features:\n    83→1. **Understand Requirements**: Ask clarifying questions about edge cases, device compatibility, and user experience expectations\n    84→2. **Design First**: Outline the architecture, data flow, and component responsibilities before coding\n    85→3. **Incremental Implementation**: Build in testable increments with clear boundaries\n    86→4. **Quality Verification**: Write tests alongside implementation, verify edge cases\n    87→\n    88→When reviewing code:\n    89→1. **Architecture Alignment**: Check if the implementation follows established patterns\n    90→2. **Android Lifecycle**: Verify proper handling of configuration changes and process death\n    91→3. **Memory Safety**: Identify potential leaks or resource waste\n    92→4. **User Experience**: Consider edge cases, loading states, error states\n    93→5. **Maintainability**: Assess readability, testability, and future extensibility\n    94→\n    95→## Output Format\n    96→\n    97→For code implementations:\n    98→- Provide complete, compilable code snippets\n    99→- Include relevant imports\n   100→- Add inline comments for non-obvious logic\n   101→- Note any dependencies needed in build.gradle\n   102→\n   103→For architecture discussions:\n   104→- Use clear diagrams (ASCII when helpful)\n   105→- Explain trade-offs of different approaches\n   106→- Provide concrete code examples\n   107→\n   108→For code reviews:\n   109→- Categorize issues (Critical, Important, Suggestion, Nitpick)\n   110→- Explain the reasoning behind each suggestion\n   111→- Provide corrected code examples\n   112→\n   113→## Proactive Behaviors\n   114→\n   115→- Warn about deprecated APIs and suggest modern alternatives\n   116→- Identify potential ANR risks in code under review\n   117→- Suggest accessibility improvements for UI components\n   118→- Recommend build.gradle optimizations (R8, baseline profiles)\n   119→- Flag security concerns (unencrypted sensitive data, improper permission usage)\n   120→- Consider backward compatibility (minSdk implications)\n   121→\n   122→You take pride in writing clean, testable, and maintainable Android code. You balance pragmatic delivery with long-term code health, always considering the developer experience of teammates who will work with your code.\n   123→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:26.072Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→# QA Review Result\n     2→Task ID: GAME-482\n     3→Context: Lazy loading game cards in catalog + Paging 3\n     4→Platform: Android\n     5→## Build Verification\n     6→Status: ✅ Success\n     7→Variant: release + debug\n     8→Warnings: 1 (deprecated lifecycle API)\n     9→CI: Passed (GitHub Actions #1842)\n    10→## Autotests\n    11→Android\n    12→Total: 214\n    13→Run: 214\n    14→Passed: 212\n    15→Failed: 2\n    16→Flaky: 1\n    17→[Severity: Medium]\n    18→Test: CatalogPagingTests.testFastScroll()\n    19→Reason: race-condition when emulating slow network\n    20→Logs: timeout when loading 3rd page\n    21→## Test Coverage\n    22→Android\n    23→Overall: 74%\n    24→New code: 81%\n    25→Critical paths: 86%\n    26→Not covered:\n    27→handlePagingError() — edge-case offline+retry\n    28→placeholder state on loadState.Error\n    29→⚠️ Recommendation: add test for rotation + saving scroll state\n    30→## Security Audit (IS)\n    31→Checked:\n    32→No token logging\n    33→No PII in logs\n    34→HTTPS enforced\n    35→certificate pinning enabled\n    36→No exported Activity without permission\n    37→⚠️ [Severity: Medium]\n    38→Android:\n    39→GamesPagingSource.kt\n    40→Description: network error is output to logcat without filtering\n    41→Risk: possible leakage of internal API information\n    42→Recommendation: replace with sanitized error\n    43→## Accessibility (WCAG 2.1 AA)\n    44→Android (TalkBack)\n    45→❌ Card touch target: 44dp (less than 48dp)\n    46→✅ ContentDescription for images\n    47→❌ No accessibilityHint for \"Details\" button\n    48→Text contrast: 4.6:1 (normal)\n    49→## Bug Analysis\n    50→[Severity: High]\n    51→Platform: Android\n    52→File: GamesCatalogScreen.kt\n    53→Description: possible loss of scroll state during fast scrolling and screen rotation\n    54→How to reproduce:\n    55→Scroll down 3 screens\n    56→Rotate screen\n    57→Go back\n    58→Actual: position resets\n    59→Expected: position is saved\n    60→[Severity: Medium]\n    61→## Final Assessment\n    62→Quality Score: 73 / 100\n    63→Critical: 0\n    64→High: 2\n    65→Medium: 3\n    66→Low: 1\n    67→Final status\n    68→❌ Blocked\n    69→Reason:\n    70→Accessibility High\n    71→Loss of scroll state\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:26.073Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→\n     2→Copyright (c) 2026 Maksim Kosenko\n     3→\n     4→Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n     5→\n     6→The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n     7→\n     8→THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:26.074Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→# MUSIC-009\n     2→\n     3→## Заголовок\n     4→Добавить progress индикатор вокруг обложки трека\n     5→\n     6→## Проблема\n     7→Сейчас пользователь не понимает, сколько осталось до конца трека.\n     8→\n     9→## Задача\n    10→Реализовать круговой прогресс-бар вокруг обложки альбома.\n    11→Прогресс должен обновляться каждую секунду.\n    12→\n    13→## Ограничения\n    14→- Использовать Jetpack Compose\n    15→- Без сторонних библиотек\n    16→- Не ухудшить производительность\n    17→\n    18→## Команда\n    19→- android-developer\n    20→- android-code-reviewer\n    21→- qa-expert\n    22→\n    23→## Статус\n    24→Ready for dev - 2026-01-12 12:15:12\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:26.074Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→---\n     2→name: code_review_result\n     3→description: Information necessary for generating a report on completed review of new functionality.\n     4→user-invokable: false\n     5→disable-model-invocation: true\n     6→---\n     7→\n     8→## Purpose\n     9→Conducts structured code review and records results in `review_result.md`.\n    10→Writes strictly in English. No fluff.\n    11→\n    12→## When to use\n    13→Use:\n    14→- after development completion (before QA)\n    15→- after each Fix Round\n    16→- when API / DB / contracts change\n    17→- for major refactoring\n    18→- before release\n    19→\n    20→## Input (if data is missing)\n    21→Ask briefly:\n    22→- PR / diff link\n    23→- Task context\n    24→- What changed (briefly)\n    25→- Any constraints (deadline, hotfix, temporary solution)\n    26→If enough data provided — don't ask.\n    27→\n    28→## Output\n    29→Create / update file: `review_result.md` (next to task or in .claude/tasks/<task>/)\n    30→If file exists: Overwrite it\n    31→Add new Review Round\n    32→### Structure\n    33→### Review Result\n    34→#### Task\n    35→- ID\n    36→- Context (1-2 sentences):\n    37→#### Overall Assessment\n    38→Brief conclusion (3–6 lines):\n    39→```\n    40→How mature the solution is\n    41→Any architectural risks\n    42→Can it be merged\n    43→Status:\n    44→✅ Approve\n    45→🟡 Approve with comments\n    46→❌ Changes requested\n    47→```\n    48→#### Architecture\n    49→- Does it conform to current project architecture?\n    50→- Is DI / layers / modularity violated?\n    51→- Are there hidden dependencies?\n    52→- Any SRP / OCP violations?\n    53→- Potential bugs\n    54→- Possible NPEs\n    55→- Race conditions\n    56→- Lifecycle issues\n    57→- Threading errors\n    58→- State errors\n    59→- Performance\n    60→- Unnecessary recomposition?\n    61→- Object creation in composable?\n    62→- Work on main thread?\n    63→- Unnecessary allocations?\n    64→- Network calls in UI?\n    65→- Contracts and compatibility\n    66→- Have APIs changed?\n    67→- Is backward compatibility broken?\n    68→- Are migrations required?\n    69→- Readability and maintenance\n    70→- Are names clear?\n    71→- Any duplication?\n    72→- Complex methods?\n    73→- Magic numbers?\n    74→#### Tests\n    75→- Are there enough tests?\n    76→- Are edge-cases covered?\n    77→- Are additional tests needed?\n    78→- Comments\n    79→- Format each comment like:\n    80→```\n    81→### [Severity: Critical / Major / Minor]\n    82→File:\n    83→Line (if known):\n    84→Problem:\n    85→Why it's a problem:\n    86→Suggestion:\n    87→Severity rules:\n    88→Critical — can lead to crash / data loss\n    89→Major — affects architecture / maintenance / performance\n    90→Minor — style, readability, improvement\n    91→```\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:26.077Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Прочитаю остальные важные файлы.",
+          "timestamp": "2026-02-26T16:59:33.132Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/.claude-plugin/plugin.yaml"
+          },
+          "timestamp": "2026-02-26T16:59:33.139Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/agents/project-manager.md"
+          },
+          "timestamp": "2026-02-26T16:59:33.590Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/agents/qa-expert.md"
+          },
+          "timestamp": "2026-02-26T16:59:34.044Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/skills/task_management/SKILL.md"
+          },
+          "timestamp": "2026-02-26T16:59:34.423Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/skills/developer_result/SKILL.md"
+          },
+          "timestamp": "2026-02-26T16:59:34.759Z"
+        },
+        {
+          "type": "user",
+          "text": "File does not exist. Did you mean plugin.json?",
+          "timestamp": "2026-02-26T16:59:34.911Z"
+        },
+        {
+          "type": "user",
+          "text": "File does not exist.",
+          "timestamp": "2026-02-26T16:59:34.912Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→---\n     2→name: qa-expert\n     3→description: \"Use this agent when you need to verify the quality of recently written functionality for mobile applications (iOS and Android). This includes checking build status, running related autotests, analyzing test coverage, security testing, accessibility compliance, and identifying bugs. The agent should be proactively invoked after completing a significant feature implementation.\\\\n\\\\nExamples:\\\\n\\\\n<example>\\\\nContext: The user has just finished implementing a new authentication feature for a mobile app.\\\\nuser: \\\"I've completed the login screen implementation for both iOS and Android\\\"\\\\nassistant: \\\"Now let me use the qa-expert agent to verify the quality of the implemented authentication feature\\\"\\\\n<commentary>\\\\nSince a significant feature was completed, use the qa-expert agent to check build status, run autotests, verify test coverage, check security, and ensure accessibility compliance.\\\\n</commentary>\\\\n</example>\\\\n\\\\n<example>\\\\nContext: The user has written a new payment processing module.\\\\nuser: \\\"Done with the payment module implementation\\\"\\\\nassistant: \\\"Let me invoke the qa-expert agent to perform a comprehensive quality check on the payment module\\\"\\\\n<commentary>\\\\nPayment functionality is critical and requires thorough QA verification. Use the qa-expert agent to run autotests, check coverage, verify security (especially important for payments), and test accessibility.\\\\n</commentary>\\\\n</example>\\\\n\\\\n<example>\\\\nContext: The user asks to verify their recent work.\\\\nuser: \\\"Can you check if my recent changes to the profile screen are good?\\\"\\\\nassistant: \\\"I'll use the qa-expert agent to perform a comprehensive quality assessment of your profile screen changes\\\"\\\\n<commentary>\\\\nThe user is explicitly requesting a quality check. Use the qa-expert agent to analyze builds, tests, coverage, security, accessibility, and potential bugs for both platforms.\\\\n</commentary>\\\\n</example>\"\n     4→model: inherit\n     5→color: cyan\n     6→memory: project\n     7→permission-mode: acceptEdits\n     8→tools: Bash(mkdir *),Bash(mv *),Bash(cp *)\n     9→skills: \n    10→    - task_management\n    11→    - qa_review_result\n    12→---\n    13→\n    14→You are an elite QA Expert specializing in mobile application quality assurance for both iOS and Android platforms. You possess deep expertise in automated testing, security auditing, accessibility compliance, and defect detection. Your role is to ensure every piece of functionality meets the highest quality standards before release.\n    15→\n    16→## Core Responsibilities\n    17→\n    18→You are responsible for comprehensively verifying the quality of recently written functionality across these dimensions:\n    19→\n    20→### 1. Build Verification\n    21→- Verify that the application builds successfully for both iOS and Android\n    22→- Check for build warnings, errors, and configuration issues\n    23→- Validate that all dependencies are properly resolved\n    24→- Ensure build scripts and CI/CD pipelines execute without issues\n    25→\n    26→### 2. Autotest Execution\n    27→- Identify and run all autotests related to the new feature\n    28→- Analyze test results and identify any failures\n    29→- Report pass/fail rates with clear breakdowns\n    30→- Flag flaky tests that need attention\n    31→\n    32→### 3. Test Coverage Analysis\n    33→- Calculate the percentage of code coverage by autotests for the new feature\n    34→- Identify uncovered code paths and edge cases\n    35→- Recommend minimum coverage thresholds (aim for 80%+ for critical paths)\n    36→- Highlight areas requiring additional test cases\n    37→\n    38→### 4. Security Testing (IS - Information Security)\n    39→- Scan for common security vulnerabilities (OWASP Mobile Top 10)\n    40→- Check for sensitive data exposure in logs, caches, and storage\n    41→- Verify proper authentication and authorization implementation\n    42→- Validate input sanitization and output encoding\n    43→- Check for insecure communication patterns\n    44→- Review permission handling and data protection\n    45→\n    46→### 5. Accessibility Compliance (Users with Health Limitations)\n    47→- Verify screen reader compatibility (VoiceOver for iOS, TalkBack for Android)\n    48→- Check color contrast ratios (minimum 4.5:1 for normal text)\n    49→- Validate touch target sizes (minimum 48x48dp on Android, 44x44pt on iOS)\n    50→- Ensure proper content labeling and hints\n    51→- Test with system accessibility features enabled\n    52→- Verify keyboard navigation support where applicable\n    53→\n    54→### 6. Bug Detection\n    55→- Analyze code for potential runtime issues\n    56→- Check for memory leaks and resource management problems\n    57→- Identify null pointer / null safety violations\n    58→- Look for race conditions and threading issues\n    59→- Validate error handling and edge cases\n    60→- Check for platform-specific issues on both iOS and Android\n    61→\n    62→## Workflow\n    63→\n    64→When analyzing a feature, you will:\n    65→\n    66→1. **Gather Context**: Identify what functionality was recently implemented and which files/components are affected\n    67→\n    68→2. **Build Check**: Verify compilation and build success for both platforms\n    69→\n    70→3. **Run Tests**: Execute relevant autotests and collect results\n    71→\n    72→4. **Coverage Analysis**: Calculate and report test coverage metrics\n    73→\n    74→5. **Security Scan**: Perform security checks and report findings\n    75→\n    76→6. **Accessibility Audit**: Verify accessibility compliance for both platforms\n    77→\n    78→7. **Bug Analysis**: Identify and report potential defects\n    79→\n    80→8. **Summary Report**: Provide a comprehensive quality assessment with:\n    81→   - Overall quality score (0-100)\n    82→   - Critical issues requiring immediate attention\n    83→   - Warnings and recommendations\n    84→   - Passed checks and positive findings\n    85→\n    86→## Quality Thresholds\n    87→\n    88→- **Build Status**: Must pass on both platforms\n    89→- **Test Coverage**: Minimum 70% for new code, 80% for critical paths\n    90→- **Security**: Zero critical or high-severity vulnerabilities\n    91→- **Accessibility**: Must pass WCAG 2.1 Level AA standards\n    92→- **Bugs**: Zero critical bugs, maximum 3 minor bugs for initial review\n    93→\n    94→## Behavioral Guidelines\n    95→\n    96→- Be thorough but efficient - focus on meaningful issues, not nitpicks\n    97→- Provide actionable feedback with specific file locations and line numbers when possible\n    98→- Prioritize issues by severity: Critical > High > Medium > Low\n    99→- Consider both platforms equally - never ignore iOS or Android-specific concerns\n   100→- When uncertain, investigate further rather than making assumptions\n   101→- Clearly communicate when you cannot verify something due to limitations\n   102→- Suggest specific fixes rather than just identifying problems\n   103→\n   104→You approach every quality assessment with the mindset of protecting end users and maintaining the integrity of the application. Your insights help developers deliver polished, secure, and accessible mobile experiences.\n   105→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:34.916Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→---\n     2→name: task_management\n     3→description: Gets information on how to work with tasks in this project.\n     4→user-invokable: false\n     5→---\n     6→\n     7→## What is a task\n     8→Each task is a directory with a name equal to the unique task identifier.\n     9→**Examples:**\n    10→```\n    11→1) Identifier: MUSIC-009 -> Directory .claude/tasks/MUSIC-009/\n    12→2) Identifier: FEED-1000 -> Directory .claude/tasks/FEED-1000/\n    13→```\n    14→\n    15→As mentioned earlier, a task is a directory. It contains a set of .md files. Their set may vary.\n    16→**Example:**\n    17→- task.md - the only mandatory and guaranteed file in a task. Others are optional\n    18→- dev_result.md\n    19→- code_review_result.md\n    20→- qa_review_result.md\n    21→- manual_qa_result.md\n    22→\n    23→## task.md\n    24→File containing main task information:\n    25→- Task identifier\n    26→- Title\n    27→- Problem\n    28→- Task - what needs to be done\n    29→- Constraints\n    30→- Team - which subagents will be included in the work\n    31→- Status - task status. _More about them below_.\n    32→\n    33→> Important: This file is always guaranteed to exist. If it's not there - require the user to create it.\n    34→\n    35→### Task status\n    36→Task status shows progress of each performer:\n    37→- `Ready for dev` - Task waiting for developer to pick it up.\n    38→- `Dev in progress` - Developer has picked up the task.\n    39→- `Ready for review` - Developer has completed work on task. Task waiting for code review.\n    40→- `Review in progress` - Code reviewer has picked up the task.\n    41→- `Ready for qa review` - Code reviewer has completed work on task. Task waiting for QA to pick it up.\n    42→- `QA review in progress` - QA has picked up the task.\n    43→- `Verified` - Work on task is completed.\n    44→\n    45→#### Timestamp\n    46→> Important: Always put date and time next to task status when setting it\n    47→\n    48→Always specify task completion time strictly in format: YYYY-MM-DD HH:mm:ss (for example, 2026-02-25 10:43:00).\n    49→Don't add extra words or explanations before the date.\n    50→\n    51→**Examples:**\n    52→- `Ready for dev` - 2026-02-11 10:43:00\n    53→- `Verified` - 2025-12-24 18:15:43\n    54→\n    55→#### Status workflow process\n    56→```mermaid\n    57→flowchart TD\n    58→\n    59→A[Ready for Dev]\n    60→A --> B[Dev in Progress]\n    61→B --> C[Ready for Review]\n    62→C --> D[Review in Progress]\n    63→D --> E[Ready for QA Review]\n    64→E --> F[QA Review in Progress]\n    65→F --> G[Verified]\n    66→\n    67→%% Rework loops\n    68→C -- changes requested --> A\n    69→F -- bugs found --> A\n    70→```\n    71→\n    72→### For performers\n    73→#### Main agent\n    74→Monitors statuses and calls corresponding performers.\n    75→- `Ready for dev` - calls `android-developer` agent.\n    76→- `Ready for review` - calls `android-code-reviewer` agent.\n    77→- `QA review in progress` - calls `qa-expert` agent.\n    78→- `Verified` - work finished. Forming response to user.\n    79→\n    80→**Constraints:**\n    81→- Main agent is prohibited from setting statuses independently. It can only monitor them and call corresponding agents.\n    82→- Prohibited from changing task content\n    83→- Prohibited from moving task to other directories\n    84→\n    85→#### android-developer\n    86→Only monitors statuses related to development.\n    87→If status:\n    88→- `Ready for dev` - Sets new status - `Dev in progress`, because task was picked up.\n    89→- `Dev in progress` - After completing work, changes to `Ready for review`\n    90→\n    91→**Requirements:**\n    92→- Prohibited from changing others' statuses.\n    93→- Flow strictly `Ready for dev` -> Start work -> Set `Dev in progress` -> Finish work -> Set status `Ready for review`\n    94→\n    95→#### android-code-reviewer\n    96→Only monitors statuses related to code review.\n    97→If status:\n    98→- `Ready for review` - Sets new status - `Review in Progress`, because task was picked up.\n    99→- `Review in Progress`\n   100→  - After completing work, if no comments, changes to `Ready for QA Review`\n   101→  - After completing work, if there are comments, sets status `Ready for dev`\n   102→\n   103→**Requirements:**\n   104→- Prohibited from changing others' statuses.\n   105→- Flow strictly `Ready for review` -> Start work -> Set `Review in Progress` -> Finish work -> `Ready for dev` OR `Ready for QA Review`\n   106→\n   107→#### qa-expert\n   108→Only monitors statuses related to code review.\n   109→If status:\n   110→- `Ready for QA Review` - Sets new status - `QA Review in Progress`, because task was picked up.\n   111→- `QA Review in Progress`\n   112→    - After completing work, if no comments, changes to `Verified`\n   113→    - After completing work, if there are comments, sets status `Ready for dev`\n   114→\n   115→**Requirements:**\n   116→- Prohibited from changing others' statuses.\n   117→- Flow strictly `Ready for QA Review` -> Start work -> Set `QA Review in Progress` -> Finish work -> `Ready for dev` OR `Verified`\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:34.916Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→---\n     2→name: developer_result\n     3→description: Information necessary for generating a report on completed development work\n     4→user-invokable: false\n     5→disable-model-invocation: true\n     6→---\n     7→\n     8→## Purpose\n     9→Helps developers record the results of work on a task in the form of a clear report that:\n    10→- is easy for reviewers and QA to read\n    11→- clearly answers \"what was done / where / how to verify\"\n    12→- contains risks and technical debt\n    13→- is suitable for change history (release notes, postmortem)\n    14→\n    15→## When to use\n    16→Use this skill:\n    17→- after completing development on a task (before moving to Ready for review / Ready for QA)\n    18→- after fixing bugs based on review/QA comments\n    19→- for any changes that could break builds, flows, analytics, networking, performance\n    20→\n    21→## Input you must ask from user (only if missing)\n    22→If data is missing — ask without hesitation\n    23→If user provided enough information — don't ask questions.\n    24→\n    25→## Output\n    26→Always generate/update file:\n    27→- `dev_result.md` (always next to task/in `.claude/tasks/<task_id>/dev_result.md`)\n    28→- if user explicitly specified a different path — use it\n    29→\n    30→Style: strictly to the point, in English, no fluff.\n    31→\n    32→## Rules\n    33→- Write specifics: module names, classes, methods, flags, keys, endpoints.\n    34→- Don't write \"done/fixed\" without clarifying **what exactly**.\n    35→- Always add a \"How to verify\" block with step-by-step actions.\n    36→- If there's a feature flag/toggle — specify name, default, where to enable.\n    37→- If APIs/contracts/schemas are affected — specify compatibility and migrations.\n    38→- If there are risks/debt — record honestly (but briefly) and suggest follow-up tasks.\n    39→- If many changes — group by subsystems/modules.\n    40→- Don't make things up. If you don't know — mark `TODO:` or ask 1 clarifying question.\n    41→\n    42→## Template (fill-in)\n    43→Use this template as a base:\n    44→\n    45→---\n    46→# Dev Result\n    47→\n    48→## Task\n    49→- ID\n    50→- Context (1-2 sentences):\n    51→\n    52→## Done\n    53→- [ ] (specific change #1)\n    54→- [ ] (specific change #2)\n    55→- [ ] …\n    56→\n    57→## Where changed (code/modules)\n    58→- Modules:\n    59→- Main files/classes:\n    60→- Configs/manifest/gradle:\n    61→\n    62→## Contracts and compatibility\n    63→- API/DTO/DB/protocols:\n    64→- Backward/forward compatibility:\n    65→- Migrations (if any):\n    66→\n    67→## Feature flags / settings\n    68→- Flag:\n    69→  - name:\n    70→  - default:\n    71→  - where to enable:\n    72→  - impact:\n    73→\n    74→## How to verify (manual testing)\n    75→1.\n    76→2.\n    77→3.\n    78→Expected result:\n    79→- …\n    80→\n    81→## Tests\n    82→- Unit tests:\n    83→- Instrumental/screenshots:\n    84→- Manual checks/checklist:\n    85→\n    86→## Logs/metrics/analytics\n    87→- Added/changed:\n    88→- Events (name, parameters):\n    89→- Where to look:\n    90→\n    91→## Performance/memory (if relevant)\n    92→- What could be affected:\n    93→- What was checked:\n    94→- Results/numbers:\n    95→\n    96→## Risks and limitations\n    97→- Risk:\n    98→- Conditions for occurrence:\n    99→- How to rollback/mitigate:\n   100→\n   101→## Technical debt / follow-up\n   102→- [ ] Task:\n   103→- [ ] Task:\n   104→\n   105→## Notes for reviewer / QA\n   106→- What to pay attention to:\n   107→- Non-standard solutions:\n   108→---\n   109→\n   110→## Quality checklist (before finalizing)\n   111→Before final version check:\n   112→- Are there specific verification steps and expected results?\n   113→- Is it clear which files/modules were changed?\n   114→- Are toggles/settings specified?\n   115→- Are there honest risks/debt if they exist?\n   116→- Can \"what exactly was done\" be reconstructed from the text after 3 months?\n   117→\n   118→## Additional Rules: Fixes After Review / QA\n   119→When to use\n   120→Use this mode if:\n   121→task returned from Review\n   122→task returned from QA\n   123→there were comments in PR/MR\n   124→there were bug reports for current task\n   125→### IMPORTANT: Don't rewrite history\n   126→When fixing comments:\n   127→DO NOT completely rewrite dev_result.md\n   128→DO NOT delete the \"Done\" block\n   129→DO NOT rewrite previous changes\n   130→Instead — add a separate section:\n   131→🛠 Fix Round\n   132→Each fix round should be a separate block:\n   133→```\n   134→## Fix Round #1 (after Review)\n   135→Date:\n   136→Basis: PR link/comment/QA-report link\n   137→\n   138→### Fixed\n   139→- Was:\n   140→- Became:\n   141→- Where changed:\n   142→\n   143→### Reason\n   144→Briefly: why it was initially done this way.\n   145→\n   146→### Side effects\n   147→If affected:\n   148→- API\n   149→- behavior\n   150→- tests\n   151→- performance\n   152→If multiple fixes — add:\n   153→## Fix Round #2 (after QA)\n   154→🧠 Rules for describing fixes\n   155→Always show the difference \"was → became\".\n   156→Specify specific files/classes.\n   157→If tests added — specify which ones.\n   158→If comment rejected — record it:\n   159→### Not accepted\n   160→Comment:\n   161→Decision:\n   162→Rationale:\n   163→If fix could affect logic — update the \"How to verify\" block.\n   164→🔎 If fix is critical\n   165→If fix:\n   166→changes contract\n   167→changes DB schema\n   168→affects production data\n   169→affects performance\n   170→changes feature-flag\n   171→→ Add warning:\n   172→⚠️ Attention:\n   173→Change affects ...\n   174→🧩 Mini-checklist before closing fixes\n   175→Before final version agent must check:\n   176→Are all comments closed?\n   177→Are there updated verification steps?\n   178→Are tests added?\n   179→Is backward compatibility not broken?\n   180→Is it clear what exactly was fixed?\n   181→```\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:34.918Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/.claude-plugin/plugin.json"
+          },
+          "timestamp": "2026-02-26T16:59:41.938Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Glob",
+          "input": {
+            "pattern": "**/agents/*.md"
+          },
+          "timestamp": "2026-02-26T16:59:42.546Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Glob",
+          "input": {
+            "pattern": "**/skills/*/SKILL.md"
+          },
+          "timestamp": "2026-02-26T16:59:42.547Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→{\n     2→  \"name\": \"task-performer\",\n     3→  \"description\": \"Structured development workflow with automated code review and QA verification.\",\n     4→  \"version\": \"0.1.0\",\n     5→  \"author\": {\n     6→    \"name\": \"Maksim Kosenko\"\n     7→  }\n     8→}\n     9→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:42.997Z"
+        },
+        {
+          "type": "user",
+          "text": "/Users/m.kosenko/WebstormProjects/task-performer/agents/android-code-reviewer.md\n/Users/m.kosenko/WebstormProjects/task-performer/agents/qa-expert.md\n/Users/m.kosenko/WebstormProjects/task-performer/agents/senior-android-developer.md",
+          "timestamp": "2026-02-26T16:59:43.002Z"
+        },
+        {
+          "type": "user",
+          "text": "/Users/m.kosenko/WebstormProjects/task-performer/skills/code_review_result/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/developer_result/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/perform_task/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/qa_review_result/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/task_management/SKILL.md\n/Users/m.kosenko/WebstormProjects/task-performer/skills/make_task/SKILL.md",
+          "timestamp": "2026-02-26T16:59:43.002Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Прочитаю оставшиеся файлы агентов и навыков.",
+          "timestamp": "2026-02-26T16:59:50.441Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/agents/android-code-reviewer.md"
+          },
+          "timestamp": "2026-02-26T16:59:50.441Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/agents/mobile-manual-qa.md"
+          },
+          "timestamp": "2026-02-26T16:59:50.746Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/skills/qa_review_result/SKILL.md"
+          },
+          "timestamp": "2026-02-26T16:59:51.246Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/skills/manual_qa_result/SKILL.md"
+          },
+          "timestamp": "2026-02-26T16:59:51.983Z"
+        },
+        {
+          "type": "user",
+          "text": "File does not exist.",
+          "timestamp": "2026-02-26T16:59:52.485Z"
+        },
+        {
+          "type": "user",
+          "text": "File does not exist.",
+          "timestamp": "2026-02-26T16:59:52.485Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→---\n     2→name: android-code-reviewer\n     3→description: \"Use this agent when you need to review Android code changes, typically after a feature implementation or before merging a pull request. This agent analyzes git diffs to evaluate code quality, architecture compliance, coding standards, potential bugs, and security vulnerabilities.\\\\n\\\\nExamples:\\\\n\\\\n<example>\\\\nContext: User has just finished implementing a new feature in an Android project.\\\\nuser: \\\"I've implemented the user authentication flow\\\"\\\\nassistant: \\\"Let me review your implementation using the android-code-reviewer agent to ensure it follows best practices and doesn't introduce any issues.\\\"\\\\n<commentary>\\\\nSince a significant feature was implemented, use the Task tool to launch the android-code-reviewer agent to review the code changes.\\\\n</commentary>\\\\nassistant: \\\"Now I'll use the android-code-reviewer agent to review your authentication flow implementation.\\\"\\\\n</example>\\\\n\\\\n<example>\\\\nContext: User wants to check their code before committing.\\\\nuser: \\\"Please check my changes before I commit\\\"\\\\nassistant: \\\"I'll use the android-code-reviewer agent to analyze your changes and provide feedback on code quality, architecture, and potential issues.\\\"\\\\n<commentary>\\\\nThe user explicitly requested a code review, so use the Task tool to launch the android-code-reviewer agent.\\\\n</commentary>\\\\n</example>\\\\n\\\\n<example>\\\\nContext: User asks for a quick look at their recent Android code changes.\\\\nuser: \\\"Can you look at what I just wrote?\\\"\\\\nassistant: \\\"I'll launch the android-code-reviewer agent to examine your recent changes and provide comprehensive feedback.\\\"\\\\n<commentary>\\\\nThe user wants a review of recent code, use the Task tool to launch the android-code-reviewer agent.\\\\n</commentary>\\\\n</example>\"\n     4→model: inherit\n     5→color: red\n     6→memory: project\n     7→permission-mode: acceptEdits\n     8→skills: \n     9→    - task_management\n    10→    - code_review_result\n    11→---\n    12→\n    13→You are an expert Android code reviewer with deep expertise in Kotlin, Java, Android SDK, and modern Android development practices. You have extensive experience in identifying architectural issues, code quality problems, bugs, and security vulnerabilities in Android applications.\n    14→\n    15→## Your Responsibilities\n    16→\n    17→You review code changes by analyzing git diffs and provide comprehensive feedback on:\n    18→\n    19→### 1. Architecture Compliance\n    20→- Verify adherence to Clean Architecture, MVVM, MVI, or other established patterns in the project\n    21→- Check proper separation of concerns (presentation, domain, data layers)\n    22→- Evaluate dependency injection usage and module boundaries\n    23→- Assess whether changes follow SOLID principles\n    24→- Identify violations of the project's architectural guidelines\n    25→\n    26→### 2. Code Style and Conventions\n    27→- Verify Kotlin/Java coding conventions and idiomatic usage\n    28→- Check naming conventions for classes, methods, variables, and resources\n    29→- Evaluate code formatting and readability\n    30→- Review proper use of Android-specific conventions (resource handling, context usage, etc.)\n    31→- Ensure consistency with existing codebase patterns\n    32→\n    33→### 3. Bug Detection\n    34→- Identify null safety issues and potential NullPointerExceptions\n    35→- Find memory leaks (context leaks, unregistered listeners, handler issues)\n    36→- Detect race conditions and threading issues\n    37→- Spot resource management problems (unclosed streams, cursors, etc.)\n    38→- Identify logic errors and edge cases not handled\n    39→- Check for proper error handling and exception management\n    40→\n    41→### 4. Security Vulnerabilities\n    42→- Detect insecure data storage (SharedPreferences, files, databases)\n    43→- Find hardcoded secrets, API keys, or credentials\n    44→- Identify intent injection vulnerabilities\n    45→- Spot SQL injection risks in raw queries\n    46→- Check for improper permission handling\n    47→- Evaluate network security (certificate pinning, cleartext traffic)\n    48→- Find WebView security issues\n    49→- Identify component exposure problems (exported activities, receivers, providers)\n    50→\n    51→## Review Process\n    52→\n    53→1. **Obtain the diff**: Use git commands to get the relevant diff of changed files. Focus on staged or recent changes.\n    54→2. **Analyze systematically**: Review each changed file methodically across all four review categories.\n    55→3. **Prioritize findings**: Classify issues as:\n    56→   - 🔴 **Critical**: Security vulnerabilities, crashes, data loss risks\n    57→   - 🟠 **Major**: Architecture violations, memory leaks, significant bugs\n    58→   - 🟡 **Minor**: Code style issues, minor optimizations, readability improvements\n    59→   - 💡 **Suggestion**: Optional improvements, best practice recommendations\n    60→\n    61→4. **Provide actionable feedback**: For each issue, provide:\n    62→   - File and line reference\n    63→   - Clear description of the problem\n    64→   - Concrete suggestion for fixing it\n    65→   - Code example when helpful\n    66→\n    67→\n    68→## Guidelines\n    69→\n    70→- Be constructive and specific in your feedback\n    71→- Explain WHY something is problematic, not just that it is\n    72→- Reference official Android documentation and best practices when applicable\n    73→- Consider the context and constraints of the project\n    74→- If uncertain about project-specific conventions, note it and suggest checking team guidelines\n    75→- Don't nitpick unnecessarily - focus on meaningful improvements\n    76→- Always run `git diff` or similar commands to see the actual changes before reviewing\n    77→- If no diff is available or no changes are found, clearly communicate this to the user\n    78→\n    79→Start by examining the git diff to understand what code needs to be reviewed.\n    80→\n    81→## Confines\n    82→- You shouldnt write code yourself. Your main purpose is perform code review and write its results.\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:52.489Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→---\n     2→name: qa_review_result\n     3→description: Gets information on how to record QA expert review results\n     4→user-invokable: false\n     5→---\n     6→\n     7→## Purpose\n     8→Records the result of comprehensive QA verification of mobile functionality (iOS + Android).\n     9→Creates a structured report:\n    10→- Build status\n    11→- Autotests\n    12→- Coverage\n    13→- Security\n    14→- Accessibility\n    15→- Bugs\n    16→- Final quality score\n    17→- Decision (Verified / Blocked)\n    18→Writes strictly in English. No fluff.\n    19→\n    20→## When to use\n    21→Use:\n    22→- after Review\n    23→- before moving task to Verified\n    24→- before release\n    25→- after fixing QA comments\n    26→- for critical features (auth, payment, session, storage)\n    27→\n    28→## Output\n    29→Creates / updates: `qa_review_result.md`\n    30→If the file exists: overwrite it\n    31→### Structure\n    32→QA Review Result\n    33→- ID\n    34→- Context (1-2 sentences):\n    35→Platform: Android / iOS\n    36→#### Build Verification\n    37→- Status:\n    38→- Variant:\n    39→- Warnings:\n    40→❗ If build does not pass — status automatically Blocked.\n    41→#### Autotests\n    42→Total tests:\n    43→- Run:\n    44→- Passed:\n    45→- Failed:\n    46→- Flaky:\n    47→If there are failures:\n    48→```\n    49→### [Severity: Critical]\n    50→Test:\n    51→Reason:\n    52→Logs:\n    53→```\n    54→#### Test Coverage\n    55→- Overall:\n    56→- New code:\n    57→- Critical paths:\n    58→- Critical paths:\n    59→- If < 70% new code → Warning\n    60→- If < 60% → Block\n    61→- Uncovered areas:\n    62→- File:\n    63→- Method:\n    64→- Edge case:\n    65→#### Security Audit (IS)\n    66→Checked:\n    67→- Logs don't contain tokens / PII\n    68→- No hardcoded keys\n    69→- HTTPS enforced\n    70→- Certificate not disabled\n    71→- No insecure WebView\n    72→- No export of internal activities (Android)\n    73→- ATS check (iOS)\n    74→- If vulnerability found:\n    75→### [Severity: Critical / High / Medium]\n    76→File:\n    77→Description:\n    78→Risk:\n    79→Recommendation:\n    80→#### Accessibility (WCAG 2.1 AA)\n    81→```\n    82→Android (TalkBack)\n    83→Touch targets ≥ 48dp\n    84→Contrast ≥ 4.5:1\n    85→ContentDescription\n    86→Focus order\n    87→iOS (VoiceOver)\n    88→Labels\n    89→Hints\n    90→Touch targets ≥ 44pt\n    91→Dynamic Type support\n    92→If violated:\n    93→### [Severity: High / Medium]\n    94→Screen:\n    95→Problem:\n    96→Recommendation:\n    97→```\n    98→#### Bug Analysis\n    99→Checked:\n   100→null safety\n   101→lifecycle\n   102→memory leaks\n   103→race conditions\n   104→rotation / background\n   105→network error handling\n   106→Format bugs:\n   107→### [Severity: Critical / High / Medium / Low]\n   108→Platform:\n   109→File / screen:\n   110→Description:\n   111→How to reproduce:\n   112→Expected behavior:\n   113→Actual behavior:\n   114→### Final Assessment\n   115→```\n   116→Quality Score: XX / 100\n   117→Critical problems:\n   118→…\n   119→High:\n   120→…\n   121→Medium:\n   122→…\n   123→Low:\n   124→…\n   125→Final status\n   126→✅ Verified\n   127→🟡 Verified with minor issues\n   128→❌ Blocked\n   129→```\n   130→\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T16:59:52.492Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Теперь у меня полная картина проекта. Напишу README.",
+          "timestamp": "2026-02-26T17:00:23.427Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Write",
+          "input": {
+            "content": "# Task Performer Plugin\n\nStructured development workflow plugin for Claude Code with automated code review and QA verification for mobile applications.\n\n## Overview\n\nTask Performer is a Claude Code plugin that orchestrates a complete development workflow for Android projects. It provides specialized agents and skills to handle:\n\n- **Development** - Implementation of features following best practices\n- **Code Review** - Comprehensive code analysis with actionable feedback\n- **QA Verification** - Build, tests, coverage, security, and accessibility checks\n\n## Installation\n\n### Local Installation\n\n1. Clone or download this repository\n2. Copy the `.claude-plugin` folder to your project root:\n   ```bash\n   cp -r .claude-plugin /path/to/your/project/\n   ```\n3. Copy the `agents` folder:\n   ```bash\n   cp -r agents /path/to/your/project/.claude/\n   ```\n4. Copy the `skills` folder:\n   ```bash\n   cp -r skills /path/to/your/project/.claude/\n   ```\n\n### Directory Structure\n\nAfter installation, your project should have:\n\n```\nyour-project/\n├── .claude/\n│   ├── agents/\n│   │   ├── senior-android-developer.md\n│   │   ├── android-code-reviewer.md\n│   │   └── qa-expert.md\n│   └── skills/\n│       ├── task_management/\n│       ├── developer_result/\n│       ├── code_review_result/\n│       └── qa_review_result/\n├── .claude-plugin/\n│   └── plugin.json\n└── .claude/\n    └── tasks/\n        └── <TASK-ID>/\n            ├── task.md\n            ├── dev_result.md\n            ├── review_result.md\n            └── qa_review_result.md\n```\n\n## Agents\n\n### senior-android-developer\n\nSenior Android developer agent for:\n- Architecture decisions (MVI, MVVM, Clean Architecture)\n- Kotlin/Java implementation\n- Jetpack Compose UI development\n- Performance optimization\n- Testing strategies\n\n### android-code-reviewer\n\nCode review specialist that analyzes:\n- Architecture compliance\n- Code style and conventions\n- Bug detection (NPE, memory leaks, race conditions)\n- Security vulnerabilities\n\n### qa-expert\n\nQuality assurance agent that verifies:\n- Build status (debug/release)\n- Autotest execution and results\n- Test coverage analysis\n- Security audit (OWASP Mobile Top 10)\n- Accessibility compliance (WCAG 2.1 AA)\n\n## Skills\n\n### task_management\n\nManages task lifecycle and status transitions:\n\n```\nReady for dev → Dev in progress → Ready for review → Review in progress → Ready for QA Review → QA Review in progress → Verified\n```\n\n### developer_result\n\nRecords development work results including:\n- What was done\n- Where changes were made\n- How to verify\n- Tests added\n- Risks and limitations\n\n### code_review_result\n\nRecords code review findings:\n- Architecture assessment\n- Potential bugs\n- Performance issues\n- Security concerns\n- Severity classification\n\n### qa_review_result\n\nRecords QA verification results:\n- Build status\n- Test results and coverage\n- Security audit findings\n- Accessibility compliance\n- Quality score\n\n## Workflow\n\n### 1. Create a Task\n\nCreate a task file at `.claude/tasks/<TASK-ID>/task.md`:\n\n```markdown\n# MUSIC-009\n\n## Title\nAdd progress indicator around track cover\n\n## Problem\nUser doesn't understand how much time remains until end of track.\n\n## Task\nImplement circular progress bar around album cover.\nProgress should update every second.\n\n## Constraints\n- Use Jetpack Compose\n- No third-party libraries\n- Don't degrade performance\n\n## Team\n- senior-android-developer\n- android-code-reviewer\n- qa-expert\n\n## Status\nReady for dev - 2026-01-12 12:15:12\n```\n\n### 2. Run Development\n\nAsk Claude to work on the task:\n```\nWork on task MUSIC-009\n```\n\nThe plugin will:\n1. Assign the task to `senior-android-developer`\n2. Implement the feature\n3. Run code review via `android-code-reviewer`\n4. Run QA verification via `qa-expert`\n5. Update task status through the workflow\n\n### 3. Track Progress\n\nTask status transitions:\n- `Ready for dev` - Waiting for developer\n- `Dev in progress` - Developer working\n- `Ready for review` - Development complete, waiting for review\n- `Review in progress` - Code review in progress\n- `Ready for QA Review` - Review complete, waiting for QA\n- `QA Review in progress` - QA verification in progress\n- `Verified` - All checks passed\n\n## Task Files\n\nEach task generates several files:\n\n| File | Purpose |\n|------|---------|\n| `task.md` | Task description and status |\n| `dev_result.md` | Development results |\n| `review_result.md` | Code review findings |\n| `qa_review_result.md` | QA verification results |\n\n## Examples\n\nExample files are available in the `skills/*/examples/` directories.\n\n## License\n\nMIT License - see [LICENSE](LICENSE) for details.\n\n## Author\n\nMaksim Kosenko\n",
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/README.md"
+          },
+          "timestamp": "2026-02-26T17:00:23.458Z"
+        },
+        {
+          "type": "user",
+          "text": "File created successfully at: /Users/m.kosenko/WebstormProjects/task-performer/README.md",
+          "timestamp": "2026-02-26T17:01:56.511Z"
+        },
+        {
+          "type": "assistant",
+          "text": "README готов. Теперь о тестировании плагина.\n\n## Как протестировать плагин\n\n### 1. Подготовка тестового проекта\n\nСоздай новый Android проект или используй существующий:\n\n```bash\n# Создай директорию для тестов\nmkdir ~/test-task-performer\ncd ~/test-task-performer\n\n# Инициализируй git (обязательно для работы плагина)\ngit init\n```\n\n### 2. Установка плагина в проект\n\n```bash\n# Скопируй файлы плагина\ncp -r /Users/m.kosenko/WebstormProjects/task-performer/.claude-plugin .\ncp -r /Users/m.kosenko/WebstormProjects/task-performer/agents .claude/\ncp -r /Users/m.kosenko/WebstormProjects/task-performer/skills .claude/\n\n# Создай директорию для задач\nmkdir -p .claude/tasks\n```\n\n### 3. Создание тестовой задачи\n\nСоздай файл `.claude/tasks/TEST-001/task.md`:\n\n```markdown\n# TEST-001\n\n## Title\nTest task for plugin verification\n\n## Problem\nNeed to verify plugin works correctly.\n\n## Task\nCreate a simple Compose button with click counter.\n\n## Constraints\n- Use Jetpack Compose\n- Follow Material Design\n\n## Team\n- senior-android-developer\n- android-code-reviewer\n- qa-expert\n\n## Status\nReady for dev - 2026-02-26 10:00:00\n```\n\n### 4. Запуск Claude Code\n\n```bash\n# Запусти Claude Code в тестовом проекте\nclaude\n```\n\n### 5. Тестовые команды\n\nВ Claude Code попробуй:\n\n```\n# Проверь, что агенты загружены\n/list-agents\n\n# Запусти задачу\nWork on task TEST-001\n\n# Или вызови агента напрямую\nUse senior-android-developer to create a simple counter button\n```\n\n### 6. Что проверять\n\n| Проверка | Ожидаемый результат |\n|----------|---------------------|\n| Агенты загружаются | `/list-agents` показывает senior-android-developer, android-code-reviewer, qa-expert |\n| Навыки работают | Вызов `/write_dev_result` создает dev_result.md |\n| Статусы меняются | task.md обновляется с новыми статусами |\n| Файлы создаются | Появляются dev_result.md, review_result.md, qa_review_result.md |\n\n### 7. Быстрая проверка навыков\n\n```bash\n# Проверь структуру навыков\nls -la .claude/skills/\n\n# Проверь структуру агентов\nls -la .claude/agents/\n```\n\nХочешь, чтобы я помог создать тестовый проект или проверил что-то конкретное?",
+          "timestamp": "2026-02-26T17:03:53.015Z"
+        },
+        {
+          "type": "user",
+          "text": "Я хочу чтобы workflow был mermaid.",
+          "timestamp": "2026-02-26T17:17:48.352Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/README.md"
+          },
+          "timestamp": "2026-02-26T17:17:56.799Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→# Task Performer Plugin\n     2→\n     3→Structured development workflow plugin for Claude Code with automated code review and QA verification for mobile applications.\n     4→\n     5→## Overview\n     6→\n     7→Task Performer is a Claude Code plugin that orchestrates a complete development workflow for Android projects. It provides specialized agents and skills to handle:\n     8→\n     9→- **Development** - Implementation of features following best practices\n    10→- **Code Review** - Comprehensive code analysis with actionable feedback\n    11→- **QA Verification** - Build, tests, coverage, security, and accessibility checks\n    12→\n    13→## Installation\n    14→\n    15→In Claude Code, register the marketplace first:\n    16→`/plugin marketplace add memksim/workflow-marketplace`\n    17→\n    18→Then install the plugin from this marketplace:\n    19→`/plugin install task-performer@workflow-plugins`\n    20→\n    21→### Directory Structure\n    22→\n    23→After installation, your project should have:\n    24→\n    25→```\n    26→your-project/\n    27→└── .claude/\n    28→    └── tasks/\n    29→        └── <TASK-ID>/\n    30→            ├── task.md\n    31→            ├── dev_result.md\n    32→            ├── review_result.md\n    33→            └── qa_review_result.md\n    34→```\n    35→\n    36→## Agents\n    37→\n    38→### senior-android-developer\n    39→\n    40→Senior Android developer agent for:\n    41→- Architecture decisions (MVI, MVVM, Clean Architecture)\n    42→- Kotlin/Java implementation\n    43→- Jetpack Compose UI development\n    44→- Performance optimization\n    45→- Testing strategies\n    46→\n    47→### android-code-reviewer\n    48→\n    49→Code review specialist that analyzes:\n    50→- Architecture compliance\n    51→- Code style and conventions\n    52→- Bug detection (NPE, memory leaks, race conditions)\n    53→- Security vulnerabilities\n    54→\n    55→### qa-expert\n    56→\n    57→Quality assurance agent that verifies:\n    58→- Build status (debug/release)\n    59→- Autotest execution and results\n    60→- Test coverage analysis\n    61→- Security audit (OWASP Mobile Top 10)\n    62→- Accessibility compliance (WCAG 2.1 AA)\n    63→\n    64→## Skills\n    65→\n    66→### task_management\n    67→\n    68→Manages task lifecycle and status transitions:\n    69→\n    70→```\n    71→Ready for dev → Dev in progress → Ready for review → Review in progress → Ready for QA Review → QA Review in progress → Verified\n    72→```\n    73→\n    74→### developer_result\n    75→\n    76→Records development work results including:\n    77→- What was done\n    78→- Where changes were made\n    79→- How to verify\n    80→- Tests added\n    81→- Risks and limitations\n    82→\n    83→### code_review_result\n    84→\n    85→Records code review findings:\n    86→- Architecture assessment\n    87→- Potential bugs\n    88→- Performance issues\n    89→- Security concerns\n    90→- Severity classification\n    91→\n    92→### qa_review_result\n    93→\n    94→Records QA verification results:\n    95→- Build status\n    96→- Test results and coverage\n    97→- Security audit findings\n    98→- Accessibility compliance\n    99→- Quality score\n   100→\n   101→## Workflow\n   102→\n   103→### 1. Create a Task\n   104→\n   105→Create a task file at `.claude/tasks/<TASK-ID>/task.md`:\n   106→\n   107→```markdown\n   108→# MUSIC-009\n   109→\n   110→## Title\n   111→Add progress indicator around track cover\n   112→\n   113→## Problem\n   114→User doesn't understand how much time remains until end of track.\n   115→\n   116→## Task\n   117→Implement circular progress bar around album cover.\n   118→Progress should update every second.\n   119→\n   120→## Constraints\n   121→- Use Jetpack Compose\n   122→- No third-party libraries\n   123→- Don't degrade performance\n   124→\n   125→## Team\n   126→- senior-android-developer\n   127→- android-code-reviewer\n   128→- qa-expert\n   129→\n   130→## Status\n   131→Ready for dev - 2026-01-12 12:15:12\n   132→```\n   133→\n   134→### 2. Run Development\n   135→\n   136→Ask Claude to work on the task:\n   137→```\n   138→Work on task MUSIC-009\n   139→```\n   140→\n   141→The plugin will:\n   142→1. Assign the task to `senior-android-developer`\n   143→2. Implement the feature\n   144→3. Run code review via `android-code-reviewer`\n   145→4. Run QA verification via `qa-expert`\n   146→5. Update task status through the workflow\n   147→\n   148→### 3. Track Progress\n   149→\n   150→Task status transitions:\n   151→- `Ready for dev` - Waiting for developer\n   152→- `Dev in progress` - Developer working\n   153→- `Ready for review` - Development complete, waiting for review\n   154→- `Review in progress` - Code review in progress\n   155→- `Ready for QA Review` - Review complete, waiting for QA\n   156→- `QA Review in progress` - QA verification in progress\n   157→- `Verified` - All checks passed\n   158→\n   159→## Task Files\n   160→\n   161→Each task generates several files:\n   162→\n   163→| File | Purpose |\n   164→|------|---------|\n   165→| `task.md` | Task description and status |\n   166→| `dev_result.md` | Development results |\n   167→| `review_result.md` | Code review findings |\n   168→| `qa_review_result.md` | QA verification results |\n   169→\n   170→## Examples\n   171→\n   172→Example files are available in the `skills/*/examples/` directories.\n   173→\n   174→## License\n   175→\n   176→MIT License - see [LICENSE](LICENSE) for details.\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T17:17:57.217Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Edit",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/README.md",
+            "new_string": "## Workflow\n\n```mermaid\nflowchart TD\n    A[Ready for Dev] -->|senior-android-developer| B[Dev in Progress]\n    B -->|implementation complete| C[Ready for Review]\n    C -->|android-code-reviewer| D[Review in Progress]\n    D -->|approved| E[Ready for QA Review]\n    D -->|changes requested| A\n    E -->|qa-expert| F[QA Review in Progress]\n    F -->|passed| G[Verified]\n    F -->|bugs found| A\n```\n\n### 1. Create a Task",
+            "old_string": "## Workflow\n\n### 1. Create a Task",
+            "replace_all": false
+          },
+          "timestamp": "2026-02-26T17:18:08.550Z"
+        },
+        {
+          "type": "user",
+          "text": "The file /Users/m.kosenko/WebstormProjects/task-performer/README.md has been updated successfully.",
+          "timestamp": "2026-02-26T17:18:08.975Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Также заменю текстовый workflow в разделе Skills на mermaid.",
+          "timestamp": "2026-02-26T17:18:18.580Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Edit",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/README.md",
+            "new_string": "### task_management\n\nManages task lifecycle and status transitions:\n\n```mermaid\nflowchart LR\n    A[Ready for Dev] --> B[Dev in Progress]\n    B --> C[Ready for Review]\n    C --> D[Review in Progress]\n    D --> E[Ready for QA Review]\n    D -->|changes requested| A\n    E --> F[QA Review in Progress]\n    F --> G[Verified]\n    F -->|bugs found| A\n```",
+            "old_string": "### task_management\n\nManages task lifecycle and status transitions:\n\n```\nReady for dev → Dev in progress → Ready for review → Review in progress → Ready for QA Review → QA Review in progress → Verified\n```",
+            "replace_all": false
+          },
+          "timestamp": "2026-02-26T17:18:18.729Z"
+        },
+        {
+          "type": "user",
+          "text": "The file /Users/m.kosenko/WebstormProjects/task-performer/README.md has been updated successfully.",
+          "timestamp": "2026-02-26T17:18:19.886Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Готово. Добавил mermaid диаграммы в два места:\n\n1. **Раздел Workflow** - полная диаграмма с указанием агентов\n2. **Раздел task_management** - упрощенная диаграмма переходов\n\nДиаграммы показывают:\n- Прямой путь: Ready for Dev → Verified\n- Циклы доработок: возврат на \"Ready for Dev\" при замечаниях от review или QA",
+          "timestamp": "2026-02-26T17:18:30.414Z"
+        },
+        {
+          "type": "user",
+          "text": "В README допиши только SKILLS там будут только make_task и perform_task",
+          "timestamp": "2026-02-26T17:22:34.073Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Read",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/README.md"
+          },
+          "timestamp": "2026-02-26T17:22:42.379Z"
+        },
+        {
+          "type": "user",
+          "text": "     1→# Task Performer Plugin\n     2→\n     3→Structured development workflow plugin for Claude Code with automated code review and QA verification for mobile applications.\n     4→\n     5→## Overview\n     6→\n     7→Task Performer is a Claude Code plugin that orchestrates a complete development workflow for Android projects. It provides specialized agents and skills to handle:\n     8→\n     9→- **Development** - Implementation of features following best practices\n    10→- **Code Review** - Comprehensive code analysis with actionable feedback\n    11→- **QA Verification** - Build, tests, coverage, security, and accessibility checks\n    12→\n    13→## Installation\n    14→\n    15→In Claude Code, register the marketplace first:\n    16→`/plugin marketplace add memksim/workflow-marketplace`\n    17→\n    18→Then install the plugin from this marketplace:\n    19→`/plugin install task-performer@workflow-plugins`\n    20→\n    21→### Directory Structure\n    22→\n    23→After installation, your project should have:\n    24→\n    25→```\n    26→your-project/\n    27→└── .claude/\n    28→    └── tasks/\n    29→        └── <TASK-ID>/\n    30→            ├── task.md\n    31→            ├── dev_result.md\n    32→            ├── review_result.md\n    33→            └── qa_review_result.md\n    34→```\n    35→\n    36→## Agents\n    37→\n    38→### senior-android-developer\n    39→\n    40→Senior Android developer agent for:\n    41→- Architecture decisions (MVI, MVVM, Clean Architecture)\n    42→- Kotlin/Java implementation\n    43→- Jetpack Compose UI development\n    44→- Performance optimization\n    45→- Testing strategies\n    46→\n    47→### android-code-reviewer\n    48→\n    49→Code review specialist that analyzes:\n    50→- Architecture compliance\n    51→- Code style and conventions\n    52→- Bug detection (NPE, memory leaks, race conditions)\n    53→- Security vulnerabilities\n    54→\n    55→### qa-expert\n    56→\n    57→Quality assurance agent that verifies:\n    58→- Build status (debug/release)\n    59→- Autotest execution and results\n    60→- Test coverage analysis\n    61→- Security audit (OWASP Mobile Top 10)\n    62→- Accessibility compliance (WCAG 2.1 AA)\n    63→\n    64→## Skills\n    65→\n    66→\n    67→\n    68→## Workflow\n    69→\n    70→### User workflow\n    71→1. `/make_task ABC-123`\n    72→2. `/perform_task ABC-123`\n    73→\n    74→### Agents workflow\n    75→```mermaid\n    76→```mermaid\n    77→flowchart TD\n    78→\n    79→A[Ready for Dev]\n    80→A --> B[Dev in Progress]\n    81→B --> C[Ready for Review]\n    82→C --> D[Review in Progress]\n    83→D --> E[Ready for QA Review]\n    84→E --> F[QA Review in Progress]\n    85→F --> G[Verified]\n    86→\n    87→%% Rework loops\n    88→C -- changes requested --> A\n    89→F -- bugs found --> A\n    90→```\n    91→\n    92→## Task Files\n    93→\n    94→Each task generates several files:\n    95→\n    96→| File | Purpose |\n    97→|------|---------|\n    98→| `task.md` | Task description and status |\n    99→| `dev_result.md` | Development results |\n   100→| `review_result.md` | Code review findings |\n   101→| `qa_review_result.md` | QA verification results |\n   102→\n   103→## Examples\n   104→\n   105→Example files are available in the `skills/*/examples/` directories.\n   106→\n   107→## License\n   108→\n   109→MIT License - see [LICENSE](LICENSE) for details.\n\n<system-reminder>\nWhenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.\n</system-reminder>\n",
+          "timestamp": "2026-02-26T17:22:42.559Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Edit",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/README.md",
+            "new_string": "## Skills\n\n### /make_task\n\nCreates a new task with the specified ID.\n\n```\n/make_task ABC-123\n```\n\nPrompts for:\n- Title\n- Problem description\n- Task description\n- Constraints\n- Team members\n\nCreates `.claude/tasks/ABC-123/task.md` with status `Ready for dev`.\n\n### /perform_task\n\nExecutes the full workflow for a task.\n\n```\n/perform_task ABC-123\n```\n\nRuns the complete pipeline:\n1. **Development** - `senior-android-developer` implements the feature\n2. **Code Review** - `android-code-reviewer` analyzes the code\n3. **QA Verification** - `qa-expert` checks build, tests, security, accessibility\n\n## Workflow",
+            "old_string": "## Skills\n\n\n\n## Workflow",
+            "replace_all": false
+          },
+          "timestamp": "2026-02-26T17:22:53.889Z"
+        },
+        {
+          "type": "user",
+          "text": "The file /Users/m.kosenko/WebstormProjects/task-performer/README.md has been updated successfully.",
+          "timestamp": "2026-02-26T17:22:54.124Z"
+        },
+        {
+          "type": "assistant",
+          "text": "Исправлю также двойной тег mermaid в диаграмме.",
+          "timestamp": "2026-02-26T17:23:02.966Z"
+        },
+        {
+          "type": "tool_use",
+          "name": "Edit",
+          "input": {
+            "file_path": "/Users/m.kosenko/WebstormProjects/task-performer/README.md",
+            "new_string": "### Agents workflow\n```mermaid\nflowchart TD",
+            "old_string": "### Agents workflow\n```mermaid\n```mermaid\nflowchart TD",
+            "replace_all": false
+          },
+          "timestamp": "2026-02-26T17:23:03.006Z"
+        }
+      ],
+      "total_additions": 871,
+      "total_deletions": 7,
+      "accepted_lines": 82,
+      "overriden_lines": 0
+    }
+  }
+}
